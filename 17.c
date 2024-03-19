@@ -10,7 +10,7 @@ void ordena(int *array, int num, int (*comp)(int, int)) {
     int i, j;
     for (i=0;i<num-1;i++) {
         for (j=0;j<num-i-1;j++) {
-            if ((*comp)(array[j], array[j + 1]) < 0) {
+            if ((*comp)(array[j], array[j + 1]) > 0) {
                 int aux = array[j];
                 array[j] = array[j + 1];
                 array[j + 1] = aux;
@@ -33,8 +33,12 @@ int main() {
     for (i = 0; i < n; i++) {
         x[i] = rand() % 10; // números aleatórios até 10
     }
-    //ponteiro para função compare
-    ordena(x, n, compare);
+    printf("array antes da ordenação \n");
+    printf("\n");
+    for (i = 0; i < n; i++) {
+        printf("x[%d] = %d\n", i, x[i]);
+    }
+    ordena(x, n, compare);//ponteiro para função compare
     printf("\n");
     printf("array após a ordenação \n");
     printf("\n");
