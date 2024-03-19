@@ -9,15 +9,15 @@ int main(void){
     scanf("%d", &n);
     x = (float*) malloc(n*sizeof(float));
     for(i=0;i<n;i++){
-        x[i]=rand() % 10;
+        x[i]=rand() % 10; // números aleatórios até 10
         printf("x[%d] = %.2f\n", i, x[i]);
     }
-    for(i=0;i<n-1;i++){
+    for(i=0;i<n-1;i++){ // bubble sort
         for(j=0;j<n-1;j++){
-            if (x[j] > x[j + 1]){
+            if (x[j] > x[j+1]){
                 aux = x[j];
-                x[j] = x[j + 1];
-                x[j + 1] = aux;
+                x[j] = x[j+1];
+                x[j+1] = aux;
             }
         }
     }
