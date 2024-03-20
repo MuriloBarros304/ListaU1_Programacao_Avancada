@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define max 50 // aumento considerável para melhorar visualização da diferença entre as funções
+#define max 50 
 
 int compare(int a, int b) { // função de comparação
     return (a-b);
