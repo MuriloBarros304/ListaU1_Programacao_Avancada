@@ -6,7 +6,7 @@ int compare(int a, int b) { // função de comparação
     return (a-b);
 }
 
-void ordena(int *array, int num, int (*comp)(int, int)) {
+void ordena(int *array, int num, int (*comp)(int, int)) { // função que ordena com bubble sort
     int i, j;
     for (i=0;i<num-1;i++) {
         for (j=0;j<num-i-1;j++) {
