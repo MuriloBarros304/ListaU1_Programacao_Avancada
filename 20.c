@@ -24,7 +24,7 @@ int main(void) {
     // alocação de memória para a matriz A
     a = (int**)malloc(nla * sizeof(int*));
     a[0] = (int*)malloc(nla * nca * sizeof(int));
-    for(i = 1; i < nla; i++) {
+    for(i=1;i<nla;i++) {
         a[i] = a[i-1] + nca;
     }
   
