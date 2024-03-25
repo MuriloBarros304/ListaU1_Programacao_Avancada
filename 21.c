@@ -1,3 +1,4 @@
+// alternativa C
 int f(char *data){
     void *s;
     s = malloc(50); // alocação de 50 bytes da memória

@@ -10,7 +10,6 @@ int main(){
         z = z & (a+b);
         a = a >> 1;
         b = b << 1;
-        printf("%d", y);
     }
     printf ("%d %d %d\n", x, y, z);
     return 0;
@@ -50,4 +49,6 @@ a = 00000000 = 0
 b = 00010000 = 16
 
 a=0, portanto o while termina
+Resultado: x = 15; y = 13; z = 0.
+Alternativa 
 */
