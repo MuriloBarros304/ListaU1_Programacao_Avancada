@@ -17,8 +17,8 @@ int main(){
 // 15 13 0
 /* o while só irá parar quando a = 0.
 inicialmente temos: 
-a = 00000000 00000000 00000000 00001010 (int -> 4 bytes / 32 bits)
-b = 00000000 00000000 00000000 00000001
+a = 00001010 (int -> 4 bytes / 32 bits)
+b = 00000001
 
 loop 1:
 OR bit-a-bit => x = a OR b = 00001011 = 11
@@ -31,4 +31,9 @@ loop 2:
 x = 00000111 = 7
 y = 00000111 = 7
 z = 11 AND 7 = 1011 AND 0111 = 0011 = 3
+a = 00000010 = 3
+b = 00000001 = 1
+
+loop 3:
+
 */
