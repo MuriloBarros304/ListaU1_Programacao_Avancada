@@ -1,3 +1,8 @@
+/*
+Mostre o que será impresso por programa supondo que a variável i ocupa o endereço 4094 na
+memória e que nessa arquitetura os inteiros possuem 2 bytes de tamanho.
+*/
+
 #include <stdio.h>
 
 int main(void){

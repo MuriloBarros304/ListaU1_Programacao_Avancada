@@ -1,3 +1,8 @@
+/*
+Seja o seguinte trecho de programa:
+Determine o valor das seguintes expressões, justificando o porquê de cada resultado:
+*/
+
 #include <stdio.h>
 
 int main(){

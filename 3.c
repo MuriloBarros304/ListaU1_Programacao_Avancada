@@ -1,3 +1,8 @@
+/*
+Se i e j são variáveis inteiras e p e q ponteiros para int, quais das seguintes expressões de
+atribuição são ilegais? Justifique.
+*/
+
 #include <stdio.h>
 
 int main(void){
