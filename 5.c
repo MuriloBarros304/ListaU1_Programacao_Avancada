@@ -1,3 +1,10 @@
+/*
+Determine o que será mostrado pelo seguinte programa (compile-o, execute-o e explique se
+foram obtidas as respostas esperadas).
+*/
+
+#include <stdio.h>
+
 int main(void){
     float vet[5] = {1.1,2.2,3.3,4.4,5.5};
     float *f;
