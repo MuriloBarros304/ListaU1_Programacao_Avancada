@@ -1,7 +1,11 @@
+/*
+Considerando a declaração, quais das seguintes expressões são válidas? Justifique.
+*/
+
 #include <stdio.h>
 
 int main(void){
-    int mat[4], *p, x;
+    int mat[4], *p, x; // declaração
     for(x=0;x<4;x++){
         mat[x] = x;
     }

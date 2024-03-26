@@ -1,8 +1,14 @@
+/*
+Qual será a saída do seguinte programa
+*/
+
 #include <stdio.h>
+
 struct teste{
     int x = 3;
     char nome[4] = "jose";
     };
+
 int main(){
     struct teste *s;
     printf("%d", s->x);

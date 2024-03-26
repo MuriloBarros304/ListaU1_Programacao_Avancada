@@ -1,7 +1,12 @@
+/*
+Suponha que as seguintes declarações tenham sido realizadas:
+Identifique quais dos seguintes comandos é válido ou inválido:
+*/
+
 #include <stdio.h>
 
 int main(void){
-    float aloha[10], coisas[10][5], *pf, value = 2.2;
+    float aloha[10], coisas[10][5], *pf, value = 2.2; // declarações
     int i=3;
 
     // comandos

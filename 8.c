@@ -1,3 +1,7 @@
+/*
+O que fazem os seguintes programas em C?
+*/
+
 #include <stdio.h>
 
 // int main(void){

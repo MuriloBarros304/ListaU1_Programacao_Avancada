@@ -1,3 +1,7 @@
+/*
+Qual será a saída do seguinte programa
+*/
+
 #include <stdio.h>
 
 void main(){
