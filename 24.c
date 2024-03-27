@@ -17,45 +17,40 @@ comentários como sua codificação da matriz m na variável de 64 bits foi real
 #include <stdio.h>
 #include <stdlib.h>
 
-void send(unsigned long *estado, int **M){
+// função fictícia para enviar o estado através da porta serial
+void send(unsigned long estado) {
+    printf("Estado enviado: %lu\n", estado); // %lu é o formato para imprimir unsigned long
+}
+
+int main(void) {
+    unsigned char *x;
+    char m[8][8];
+    unsigned long estado = 0;
     int i, j;
-    //for(i=0;i<64;i++){
-        //for(j=0;j<8;j++){
-           // estado[i] = M[i][j]; // erro
-        //}
-   // }
-}
 
-int main(void){
-    int **m;
-    unsigned long *state;
-    int i,j;
-
-    m = (int**)malloc(8 * sizeof(int*));
-    m[0] = (int*)malloc(8 * 8 * sizeof(int));
-    for(i=1;i<8;i++) {
-        m[i] = m[i-1] + 8;
-    }
-
-    for(i=0;i<8;i++){
-        for(j=0;j<8;j++){
-            m[i][j] = rand() & 1;
+    // preenchendo a matriz com valores aleatórios 0 ou 1
+    for (i = 0; i < 8; i++) {
+        for (j = 0; j < 8; j++) {
+            m[i][j] = rand() & 1; 
         }
     }
-    for(i=0;i<8;i++){
-        for(j=0;j<8;j++){
-            printf("%d ", m[i][j]);
-        }
-        printf("\n");
-    }
-    //send(state,m);
-    /* for(i=0;i<64;i++){
-        printf("%lu", state[i]);
-    } */
-    printf("%d", sizeof(state)); // 8 bytes, cada um pode ser uma linha
-    free(m[0]);
-    free(m);
-}
-/*
 
-*/
+    for (i = 0; i < 8; i++) {
+        for (j = 0; j < 8; j++) {
+            printf("%d ", m[i][j]); 
+        } printf("\n");
+    }
+
+    for (i = 0; i < 8; i++) {
+        for (j = 0; j < 8; j++) {
+            estado = estado | ((unsigned long)m[7-i][7-j] << ((i * 8) + j)); // deslocar bits, i são as linhas e j são as colunas
+        }
+    }
+
+    // Enviando o estado através da porta serial
+    send(estado);
+
+    return 0;
+}
+
+
