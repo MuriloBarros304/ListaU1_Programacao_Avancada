@@ -58,11 +58,13 @@ int main(void) {
     send(estado);
     // convertendo estado em binário e armazenando em bin
     convert(estado, bin);
+    printf("valor em binário: \n");
     for(i=0;i<64;i++){
         printf("%d ", bin[i]);
         if((i+1)%8==0) // separar as linhas para melhorar visualização
             printf("|");
     }        
+    printf("\n");
     return 0;
 }
 /*
