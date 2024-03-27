@@ -17,13 +17,26 @@ comentários como sua codificação da matriz m na variável de 64 bits foi real
 #include <stdio.h>
 #include <stdlib.h>
 
-void send(unsigned long estado){
-
+void send(unsigned long *estado, int **M){
+    int i, j;
+    for(i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            estado[i+j] = M[i][j]; // erro
+        }
+    }
 }
 
 int main(void){
-    int m[8][8];
+    int **m;
+    unsigned long *state;
     int i,j;
+
+    m = (int**)malloc(8 * sizeof(int*));
+    m[0] = (int*)malloc(8 * 8 * sizeof(int));
+    for(i=1;i<8;i++) {
+        m[i] = m[i-1] + 8;
+    }
+
     for(i=0;i<8;i++){
         for(j=0;j<8;j++){
             m[i][j] = rand() & 1;
@@ -35,4 +48,13 @@ int main(void){
         }
         printf("\n");
     }
+    send(state,m);
+    /* for(i=0;i<64;i++){
+        printf("%lu", state[i]);
+    } */
+    free(m[0]);
+    free(m);
 }
+/*
+
+*/
