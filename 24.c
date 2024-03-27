@@ -21,8 +21,16 @@ comentários como sua codificação da matriz m na variável de 64 bits foi real
 void send(unsigned long estado) {
     printf("Estado enviado: %lu\n", estado); // %lu é o formato para imprimir unsigned long
 }
+// função para converter decimal em binário
+void convert(unsigned long dec, char b[64]){
+    int i;
+    for(i=0;i<64;i++){
+        b[63 - i] = (dec >> i) & 1; // desloca em i bits para a direita e analisa o bit menos significativo, fazendo de todos os bits de dec
+    }
+}
 
 int main(void) {
+    char bin[64];
     unsigned char *x;
     char m[8][8];
     unsigned long estado = 0;
@@ -41,16 +49,25 @@ int main(void) {
         } printf("\n");
     }
 
-    for (i = 0; i < 8; i++) {
-        for (j = 0; j < 8; j++) {
+    for (i = 0; i < 8; i++) { // linhas
+        for (j = 0; j < 8; j++) { // colunas
             estado = estado | ((unsigned long)m[7-i][7-j] << ((i * 8) + j)); // deslocar bits, i são as linhas e j são as colunas
         }
     }
 
-    // Enviando o estado através da porta serial
+    // enviando o estado através da porta serial
     send(estado);
-
+    // convertendo estado em binário e armazenando em bin
+    convert(estado, bin);
+    for(i=0;i<64;i++){
+        printf("%d ", bin[i]);
+        if((i+1)%8==0) // separar as linhas para melhorar visualização
+            printf("|");
+    }        
     return 0;
 }
-
+/*
+estado inicialmente recebe 64 "0"s, um em cada bit, para preenchê-los com os bits da matriz desloca-se ela de acordo com i e j,
+para que os bits menos significativos fiquem no final, o preenchimento de estado é do final ao início
+*/
 
