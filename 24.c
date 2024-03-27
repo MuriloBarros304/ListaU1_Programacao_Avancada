@@ -31,7 +31,6 @@ void convert(unsigned long dec, char b[64]){
 
 int main(void) {
     char bin[64];
-    unsigned char *x;
     char m[8][8];
     unsigned long estado = 0;
     int i, j;
