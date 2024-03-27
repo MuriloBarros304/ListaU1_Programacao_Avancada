@@ -68,6 +68,7 @@ int main(void) {
 }
 /*
 estado inicialmente recebe 64 "0"s, um em cada bit, para preenchê-los com os bits da matriz desloca-se ela de acordo com i e j,
-para que os bits menos significativos fiquem no final, o preenchimento de estado é do final ao início
+para que os bits menos significativos fiquem no final, o preenchimento de estado é do final ao início, fazendo
+OU bit a bit para que seja 1 quando o m[i][j] for 1.
 */
 
