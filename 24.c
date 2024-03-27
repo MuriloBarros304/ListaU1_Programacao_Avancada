@@ -19,11 +19,11 @@ comentários como sua codificação da matriz m na variável de 64 bits foi real
 
 void send(unsigned long *estado, int **M){
     int i, j;
-    for(i=0;i<8;i++){
-        for(j=0;j<8;j++){
-            estado[i+j] = M[i][j]; // erro
-        }
-    }
+    //for(i=0;i<64;i++){
+        //for(j=0;j<8;j++){
+           // estado[i] = M[i][j]; // erro
+        //}
+   // }
 }
 
 int main(void){
@@ -48,10 +48,11 @@ int main(void){
         }
         printf("\n");
     }
-    send(state,m);
+    //send(state,m);
     /* for(i=0;i<64;i++){
         printf("%lu", state[i]);
     } */
+    printf("%d", sizeof(state)); // 8 bytes, cada um pode ser uma linha
     free(m[0]);
     free(m);
 }
