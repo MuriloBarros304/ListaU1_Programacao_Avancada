@@ -21,19 +21,43 @@ acessadas.
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void){
     int ***m;
-    int nc, nl, np, i, j;
-    scanf()
+    int nc, nl, np, i, j, k;
+    //scanf()
+    nc = 2;
+    nl = 4;
+    np = 5;
     m = malloc(nl * sizeof(int **));
     m[0] = malloc(nc * nl * sizeof(int *));
     m[0][0] = malloc(nc * nl * np * sizeof(int));
 
-    for(i=1;i<nl;i++){
-        m[0] = m[i-1] + nc;
-        for(j=1;j<nc;j++){
-            m[0][0] = m[i-1]
+    for (i=0;i<nl;i++) {
+        m[i] = m[0] + i * nc;
+        for (j=0;j<nc;j++) {
+            m[i][j] = m[0][0] + (i * nc + j) * np;
         }
     }
+
+    for(i=0;i<nl;i++){
+        for(j=0;j<nc;j++){
+            for(k=0;k<np;k++){
+                m[i][j][k] = rand() % 10;
+            }
+        }
+    }
+
+    for(i=0;i<nl;i++){
+        for(j=0;j<nc;j++){
+            for(k=0;k<np;k++){
+                printf("[%d][%d][%d]=%d ", i, j, k, m[i][j][k]);
+            }
+        } printf("\n");
+    }
+
+    free(m[0][0]);
+    free(m[0]);
+    free(m);
 }
