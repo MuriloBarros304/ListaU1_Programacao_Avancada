@@ -23,40 +23,61 @@ acessadas.
 #include <stdio.h>
 #include <stdlib.h>
 
+void muda(int ***matriz, int i, int j, int k){
+    printf("Insira o elemento para mudar: \n");
+    scanf("%d", &matriz[i][j][k]);
+}
+
 int main(void){
     int ***m;
-    int nc, nl, np, i, j, k;
+    int np, nc, nl, i, j, k, plano, linha, coluna;
     //scanf()
-    nc = 2;
-    nl = 4;
-    np = 5;
-    m = malloc(nl * sizeof(int **));
-    m[0] = malloc(nc * nl * sizeof(int *));
-    m[0][0] = malloc(nc * nl * np * sizeof(int));
+    np = 2;
+    nc = 4;
+    nl = 5;
+    m = malloc(np * sizeof(int **));
+    m[0] = malloc(np * nl * sizeof(int *));
+    m[0][0] = malloc(np * nl * nc * sizeof(int));
 
-    for (i=0;i<nl;i++) {
-        m[i] = m[0] + i * nc;
-        for (j=0;j<nc;j++) {
-            m[i][j] = m[0][0] + (i * nc + j) * np;
+    for (i=0;i<np;i++) {
+        m[i] = m[0] + i * nl;
+        for (j=0;j<nl;j++) {
+            m[i][j] = m[0][0] + (i * nl + j) * nc;
         }
     }
 
-    for(i=0;i<nl;i++){
-        for(j=0;j<nc;j++){
-            for(k=0;k<np;k++){
+    for(i=0;i<np;i++){
+        for(j=0;j<nl;j++){
+            for(k=0;k<nc;k++){
                 m[i][j][k] = rand() % 10;
             }
         }
     }
+    // selecionar plano
+    printf("Insira o plano para impressão: \n");
+    scanf("")
 
-    for(i=0;i<nl;i++){
-        for(j=0;j<nc;j++){
-            for(k=0;k<np;k++){
+    // imprimir
+    for(i=0;i<np;i++){
+        for(j=0;j<nl;j++){
+            for(k=0;k<nc;k++){
                 printf("[%d][%d][%d]=%d ", i, j, k, m[i][j][k]);
-            }
-        } printf("\n");
+            } printf("\n");
+        } printf("p+1 \n");
     }
+    printf("Insira o endereço do elemento para mudar: \n");
+    scanf("%d %d %d", &plano, &linha, &coluna);
+    muda(m, plano, linha, coluna);
 
+    //após mudar
+    printf("Após mudar um elemento: \n");
+    for(i=0;i<np;i++){
+        for(j=0;j<nl;j++){
+            for(k=0;k<nc;k++){
+                printf("[%d][%d][%d]=%d ", i, j, k, m[i][j][k]);
+            } printf("\n");
+        } printf("p+1 \n");
+    }
     free(m[0][0]);
     free(m[0]);
     free(m);
