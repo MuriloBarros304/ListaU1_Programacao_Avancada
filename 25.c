@@ -23,6 +23,17 @@ acessadas.
 #include <stdio.h>
 
 int main(void){
+    int ***m;
+    int nc, nl, np, i, j;
+    scanf()
+    m = malloc(nl * sizeof(int **));
+    m[0] = malloc(nc * nl * sizeof(int *));
+    m[0][0] = malloc(nc * nl * np * sizeof(int));
 
-    
+    for(i=1;i<nl;i++){
+        m[0] = m[i-1] + nc;
+        for(j=1;j<nc;j++){
+            m[0][0] = m[i-1]
+        }
+    }
 }
