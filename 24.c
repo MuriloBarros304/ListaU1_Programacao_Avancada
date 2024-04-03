@@ -25,11 +25,14 @@ void send(unsigned long estado) {
 void convert(unsigned long dec, char b[64]){
     int i;
     for(i=0;i<64;i++){
-        b[63 - i] = (dec >> i) & 1; // desloca em i bits para a direita e faz AND 1 bit a bit, fazendo de todos os bits de dec
-    }
+        b[63 - i] = (dec >> i) & 1; // desloca em i bits para a direita e faz AND 1 bit a bit, 
+    }                               // fazendo com que seja armazenado o bit menos significativo em binário
 }
-//[1,2,3,4,...63,64]
-//{122781...638387}
+// Exemplo
+//{1221...638387} -> último dígito: 7 = 111 -> último bit: 1 (move em 1 bit para a direita, fazendo com que 7 vire 3, 111 vire 11) 
+//{1221...638383} -> último dígito: 3 = 11 -> último bit: 1 (move mais um para a direita)
+// sempre armazenando do último até o primeiro dígito no vetor binário
+//...
 int main(void) {
     char bin[64];
     char m[8][8];
