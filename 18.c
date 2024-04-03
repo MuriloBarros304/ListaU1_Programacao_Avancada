@@ -13,7 +13,7 @@ conclui nesse caso?
 #include <time.h>
 #define max 50 
 
-int compare(int a, int b) { // função de comparação
+int compare(int a, int b) { // função de comparação para o bubble sort
     return (a-b);
 }
 
@@ -25,10 +25,10 @@ void ordena(int *array, int num, int (*comp)(int, int)) { // função que ordena
     int i, j;
     for (i=0;i<num-1;i++) {
         for (j=0;j<num-i-1;j++) {
-            if ((*comp)(array[j], array[j + 1]) > 0) {
+            if ((*comp)(array[j], array[j+1]) > 0) {
                 int aux = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = aux;
+                array[j] = array[j+1];
+                array[j+1] = aux;
             }
         }
     }

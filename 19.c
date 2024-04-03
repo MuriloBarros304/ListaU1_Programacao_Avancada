@@ -44,3 +44,10 @@ int main(){
     free(y);
     return 0;
 }
+/*
+Exemplo de entrada:
+Tamanho dos vetores: 4
+vetor 1: {1,3,4,2}
+vetor 2: {1,5,3,3}
+Resulta: {2,8,7,5} 
+*/

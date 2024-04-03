@@ -14,13 +14,14 @@ explique o que acontece em cada um deles.
 /* char *to_italic(char *s) {
     size_t len = strlen(s);
     char *result = malloc(len + 5); // assume que malloc não falhará
-    sprintf(result, "**%s**", s);
+    printf(result, "**%s**", s);
     return result;
 }
 
 int main() {
     puts(to_italic("Hello, there!")); // o correto seria armazenar esse argumento em um ponteiro para depois dar free e liberar a memória
     puts(to_italic("Memory leak"));
+     // não tem free
 } */
 
 // Exemplo 2
