@@ -39,6 +39,6 @@ Valor = 4092
 char = 1 byte -> 1
 int = 2 bytes -> 4
 float = 4 bytes -> 4
-double = 8 bytes -> 4
+double = 8 bytes -> 8
  */
  // Ou seja, todos com exceção do int se comportam como o esperado, saltando de acordo com seu tamanho em bytes.
