@@ -22,6 +22,7 @@ acessadas.
 
 #include <stdio.h>
 #include <stdlib.h>
+
 // função para mudar um elemento
 void muda(int ***matriz, int i, int j, int k){ // recebe a matriz e os índices
     printf("Insira o elemento para mudar: \n");
@@ -29,9 +30,9 @@ void muda(int ***matriz, int i, int j, int k){ // recebe a matriz e os índices
 }
 
 int main(void){
-    int ***m;
-    int np, nc, nl, i, j, k, plano, linha, coluna;
-    printf("Insira os tamanhos da matriz: (planos, linhas, colunas)");
+    int ***m; // a indexação da matriz será (plano, linha, coluna) -> [i][j][k]
+    int np, nc, nl, i, j, k, plano, linha, coluna, pAtual;
+    printf("Insira os tamanhos da matriz: (planos, linhas, colunas)\n");
     scanf("%d %d %d", &np, &nl, &nc);
     // alocação dinâmica de memória
     m = malloc(np * sizeof(int **));
@@ -39,9 +40,9 @@ int main(void){
     m[0][0] = malloc(np * nl * nc * sizeof(int));
     // fixação dos ponteiros
     for (i=0;i<np;i++) {
-        m[i] = m[0] + i * nl;
+        m[i] = m[0] + i * nl; // fixar as linhas nos planos
         for (j=0;j<nl;j++) {
-            m[i][j] = m[0][0] + (i * nl + j) * nc;
+            m[i][j] = m[0][0] + (i * nl + j) * nc; // fixar as colunas 
         }
     }
     // preenchendo com números aleatórios
@@ -55,28 +56,67 @@ int main(void){
     // selecionar plano
     printf("Insira o plano para impressão: \n");
     scanf("%d", &plano);
-
+    if(plano>=np){ // para evitar que o usuário insira um plano que não tem na matriz
+        printf("a matriz não tem esse plano, insira o plano para impressão novamente: \n");
+        scanf("%d", &plano); // inserir novamente     
+    }
     // imprimir
     for(j=0;j<nl;j++){
         for(k=0;k<nc;k++){
             printf("[%d][%d][%d]=%d ", plano, j, k, m[plano][j][k]);
         } printf("\n");
     } 
-     
-    printf("Insira o endereço do elemento para mudar: \n");
-    scanf("%d %d %d", &plano, &linha, &coluna);
-    muda(m, plano, linha, coluna);
+    pAtual = plano; // armazenando o plano impresso
+    printf("Insira o endereço do elemento para mudar: (plano, linha, coluna) \n");
+    scanf("%d %d %d", &plano, &linha, &coluna); 
+    if(pAtual == plano) // para mudar apenas um elemento do plano impresso anteriormente
+        muda(m, plano, linha, coluna); // muda o elemento selecionado
+    else{
+        printf("Plano inválido, selecione um elemento do plano impresso anteriormente\n");
+        scanf("%d %d %d", &plano, &linha, &coluna);
+        muda(m, plano, linha, coluna); // muda o elemento corrigido
+    } // se essa condição não existisse, seria possível mudar qualquer elemento da matriz
 
-    //após mudar
+    //após mudar (imprime todos os planos)
     printf("Após mudar um elemento: \n");
-    for(i=0;i<np;i++){
-        for(j=0;j<nl;j++){
-            for(k=0;k<nc;k++){
+    for(i=0;i<np;i++){ // planos
+        for(j=0;j<nl;j++){ // linhas
+            for(k=0;k<nc;k++){ // colunas
                 printf("[%d][%d][%d]=%d ", i, j, k, m[i][j][k]);
             } printf("\n");
-        } printf("p+1 \n");
+        } printf("\n");
     }
     free(m[0][0]);
     free(m[0]);
     free(m);
 }
+/*
+
+Exemplo de entrada: 2 3 4
+planos: 2
+linhas: 3
+colunas: 4
+
+matriz completa:
+3 6 7 5
+3 5 6 2
+9 1 2 7
+
+0 9 3 6
+0 6 2 6
+1 8 7 9
+O usuário escolhe um dos planos acima para imprimir, caso seja inválido deve inserir novamente.
+*Insira o endereço do elemento para mudar*
+1 0 1
+*Insira o elemento para mudar*
+5
+Após mudar um elemento, no caso o [1][0][1]:
+3 6 7 5
+3 5 6 2
+9 1 2 7
+
+0 5 3 6 // 5 adicionado
+0 6 2 6
+1 8 7 9
+
+*/
