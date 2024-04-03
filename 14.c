@@ -18,3 +18,6 @@ int main(void){
 
     printf("resultado: %.3f\n", result); // print do resultado retornado com 3 casas decimais após a vírgula
 }
+/*
+2.3 * 3.4 = 7.820 (3 dígitos após o ponto)
+*/

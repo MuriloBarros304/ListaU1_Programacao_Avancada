@@ -8,16 +8,16 @@ dos trechos abaixo apresenta um vazamento de memória. Identifique-o e justifiqu
 resposta.
 */
 
-// alternativa C
+// correta: alternativa C
 #include <stdio.h>
 
 int f(char *data){
     void *s;
     s = malloc(50); // alocação de 50 bytes da memória
     int size = strlen(data);
-    if (size > 50) // se size menor que 50
+    if (size > 50) // se size maior que 50
         return(-1); // sai do programa, sem liberar
-        /* free(s); --> o ideal seria ter um free dentro do if também */  
+        // free(s); --> o ideal seria ter um free dentro do if também 
     free(s); // libera caso size seja menor ou igual a 50
     return 0;
 }
