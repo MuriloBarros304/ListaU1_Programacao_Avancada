@@ -25,10 +25,11 @@ void send(unsigned long estado) {
 void convert(unsigned long dec, char b[64]){
     int i;
     for(i=0;i<64;i++){
-        b[63 - i] = (dec >> i) & 1; // desloca em i bits para a direita e analisa o bit menos significativo, fazendo de todos os bits de dec
+        b[63 - i] = (dec >> i) & 1; // desloca em i bits para a direita e faz AND 1 bit a bit, fazendo de todos os bits de dec
     }
 }
-
+//[1,2,3,4,...63,64]
+//{122781...638387}
 int main(void) {
     char bin[64];
     char m[8][8];
