@@ -56,7 +56,9 @@ int main(void) {
         for (j = 0; j < 8; j++) { // colunas
             estado = estado | ((unsigned long)m[7-i][7-j] << ((i * 8) + j)); // deslocar bits, i são as linhas e j são as colunas
         }
-    }
+    }/*
+    Armazenando o valor anterior OU bit-a-bit um bit da matriz, começando dos menos significativos 
+    */
 
     // enviando o estado através da porta serial
     send(estado);
