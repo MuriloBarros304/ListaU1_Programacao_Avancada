@@ -25,12 +25,11 @@ int main(void){
 A Primeira saída temos a do valor do contador, no caso 1.1
 A segunda saída temos a do valor do vet[i] que é vet[1] = 2.2.
 A terceira saída temos o do valor de *(f+i), ou seja, *(&vet[0] + i) que é o endereço de memória 
-onde está armazenado o primeiro elemento do vet e aparti dai vamos andar i "unidade" pra "direita", 
-logo vamos parar em *(&vet[i]) que no caso do nosso exemplo é o o próprio *(vet[1]).
-A quarta saída é o endereço de memrória em hexadecimal onde está guardado o valor de vet[i], no caso
-do nosso exemplo é &vet[1].
+onde está armazenado o primeiro elemento do vet e a parti dai vamos andar i "unidade" pra "direita", 
+logo vamos parar em *(&vet[i]).
+A quarta saída é o endereço de memrória em hexadecimal onde está guardado o valor de vet[i].
 A quinta saída é o endereço de memória em hexadecimal onde está guardado o valor de f+i, que de acordo 
-com o raciocínio da terceira sáida é o próprio &vet[i]. Que no caso do nosso exemplo é o &vet[1].
+com o raciocínio da terceira sáida é o próprio &vet[i].
 
 O contador serve para mapear as incrementações do laço for. Nele será impresso, inicialmente, 
 o valor de cada componente do vetor vet, um a cada volta do for, em seguida será impresso 
