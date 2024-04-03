@@ -46,12 +46,12 @@ int main(void){
 
     /* (e) */
     p3 = nome; // primeira letra, por padrão nome = nome[0]
-    printf("e = %c \n", *p3);
+    printf("e = %c \n", *p3); // esperava-se a palavra inteira
     //P
     
     /* (f) */
     p3 = p3 + 4; // igual o item d, quinto caractere da string
-    printf("f = %c \n", *p3);
+    printf("f = %c \n", *p3); // ponteiros
     //e
 
     /* (g) */
